@@ -1,0 +1,138 @@
+var turn = 'white';
+
+console.log('This project was made by ZarmDev, read copyright README');
+
+var board = {
+  "h1": "♜",
+  "g1": "♞",
+  "f1": "♝",
+  "e1": "♚",
+  "d1": "♛",
+  "c1": "♝",
+  "b1": "♞",
+  "a1": "♜",
+  "h2": "♟️",
+  "g2": "♟️",
+  "f2": "♟️",
+  "e2": "♟️",
+  "d2": "♟️",
+  "c2": "♟️",
+  "b2": "♟️",
+  "a2": "♟️",
+  "h3": "_",
+  "g3": "_",
+  "f3": "_",
+  "e3": "_",
+  "d3": "_",
+  "c3": "_",
+  "b3": "_",
+  "a3": "_",
+  "h4": "_",
+  "g4": "_",
+  "f4": "_",
+  "e4": "_",
+  "d4": "_",
+  "c4": "_",
+  "b4": "_",
+  "a4": "_",
+  "h5": "_",
+  "g5": "_",
+  "f5": "_",
+  "e5": "_",
+  "d5": "_",
+  "c5": "_",
+  "b5": "_",
+  "a5": "_",
+  "h6": "_",
+  "g6": "_",
+  "f6": "_",
+  "e6": "_",
+  "d6": "_",
+  "c6": "_",
+  "b6": "_",
+  "a6": "_",
+  "h7": "♙",
+  "g7": "♙",
+  "f7": "♙",
+  "e7": "♙",
+  "d7": "♙",
+  "c7": "♙",
+  "b7": "♙",
+  "a7": "♙",
+  "h8": "♖",
+  "g8": "♘",
+  "f8": "♗",
+  "e8": "♔",
+  "d8": "♕",
+  "c8": "♗",
+  "b8": "♘",
+  "a8": "♖",
+};
+
+for (var x = 0; x < 64; x += 8) {
+  if (x !== 0) {
+    console.log(`${Object.values(board)[x]} ${Object.values(board)[x + 1]} ${Object.values(board)[x + 2]} ${Object.values(board)[x + 3]} ${Object.values(board)[x + 4]} ${Object.values(board)[x + 5]} ${Object.values(board)[x + 6]} ${Object.values(board)[x + 7]} ${Number(x / 8 + 1)}`);
+  } else {
+    console.log(`h g f e d c b a`);
+    console.log(`${Object.values(board)[x]} ${Object.values(board)[x + 1]} ${Object.values(board)[x + 2]} ${Object.values(board)[x + 3]} ${Object.values(board)[x + 4]} ${Object.values(board)[x + 5]} ${Object.values(board)[x + 6]} ${Object.values(board)[x + 7]} 1`);
+  }
+}
+function loadBoard() {
+  for (var x = 0; x < 64; x += 8) {
+  if (x !== 0) {
+    console.log(`${Object.values(board)[x]} ${Object.values(board)[x + 1]} ${Object.values(board)[x + 2]} ${Object.values(board)[x + 3]} ${Object.values(board)[x + 4]} ${Object.values(board)[x + 5]} ${Object.values(board)[x + 6]} ${Object.values(board)[x + 7]} ${Number(x / 8 + 1)}`);
+  } else {
+    console.log(`h g f e d c b a`);
+    console.log(`${Object.values(board)[x]} ${Object.values(board)[x + 1]} ${Object.values(board)[x + 2]} ${Object.values(board)[x + 3]} ${Object.values(board)[x + 4]} ${Object.values(board)[x + 5]} ${Object.values(board)[x + 6]} ${Object.values(board)[x + 7]} 1`);
+  }
+}
+}
+
+
+var whiteCaptured = [];
+
+var blackCaptured = [];
+
+while (true) {
+  console.log(`turn ${turn}`);
+  //
+  console.log(`white captured: ${whiteCaptured}`);
+  //
+  console.log(`black captured: ${blackCaptured}`);
+  var ask = prompt('[piece1 (ex: pe4), piece2 (ex: nf6)]');
+  if (turn === 'white') {
+    if (board[`${ask.split(',')[1].trim()}`].includes('') {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } else if () {
+      //
+    } 
+    board[`${ask.split(',')[1].trim()}`] =  `${board[`${ask.split(',')[0]}`]}`;
+    board[`${ask.split(',')[0].trim()}`] = `_`;
+    loadBoard()
+  } else {
+    board[`${ask.split(',')[1].trim()}`] =  `${board[`${ask.split(',')[0]}`]}`;
+    board[`${ask.split(',')[0].trim()}`] = `_`;
+    loadBoard()
+  }
+  if (turn === 'white') {
+    turn = 'black';
+  } else {
+    turn = 'white';
+  }
+}
