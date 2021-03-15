@@ -101,25 +101,28 @@ while (true) {
   console.log(`black captured: ${blackCaptured}`);
   var ask = prompt('[piece1 (ex: pe4), piece2 (ex: nf6)]');
   if (turn === 'white') {
-    if (board[`${ask.split(',')[1].trim()}`].includes('') {
+    if (board[`${ask.split(',')[1].trim()}`].includes('♙') && ask.split(',')[0][1] < ask.split(',')[1][1] && ask.split(',')[0][1] > ask.split(',')[1][1]) {
+      console.log('test');
+    }
+    if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
+      whiteCaptured.push('Pawn')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♜')) {
+      whiteCaptured.push('Rook')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♞')) {
+      whiteCaptured.push('Knight')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♝')) {
+      whiteCaptured.push('Bishop')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♚')) {
+      whiteCaptured.push('How did you get here?')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♛')) {
+      whiteCaptured.push('Queen')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
       //
-    } else if () {
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
       //
-    } else if () {
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
       //
-    } else if () {
-      //
-    } else if () {
-      //
-    } else if () {
-      //
-    } else if () {
-      //
-    } else if () {
-      //
-    } else if () {
-      //
-    } else if () {
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
       //
     } 
     board[`${ask.split(',')[1].trim()}`] =  `${board[`${ask.split(',')[0]}`]}`;
