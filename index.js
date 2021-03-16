@@ -2,6 +2,13 @@ var turn = 'white';
 
 console.log('This project was made by ZarmDev, read copyright README');
 
+console.log(`Please don't repost without giving credits, if you do, state changes.`);
+
+console.log(` License and copyright notice
+ State changes
+ Disclose source
+ Same license`);
+
 var board = {
   "h1": "♜",
   "g1": "♞",
@@ -100,10 +107,21 @@ while (true) {
   //
   console.log(`black captured: ${blackCaptured}`);
   var ask = prompt('[piece1 (ex: pe4), piece2 (ex: nf6)]');
-  if (turn === 'white') {
-    if (board[`${ask.split(',')[1].trim()}`].includes('♙') && ask.split(',')[0][1] < ask.split(',')[1][1] && ask.split(',')[0][1] > ask.split(',')[1][1]) {
-      console.log('test');
+  /* Check piece */
+
+
+
+
+  
+  if (board[`${ask.split(',')[0].trim()}`].includes('♙')) {
+    if (ask.split(',')[1][2] > ask.split(',')[0][1] || board[ask.split(',')[1].trim()] !== '_' || ask.split(',')[0][0] !== ask.split(',')[1][1]) {
+      console.log('Pawn invalid, error report: ', ask.split(',')[1][2] > ask.split(',')[0][1], board[ask.split(',')[1].trim()] !== '_', board[`${ask.split(',')[1].trim()}`], ask.split(',')[0][0] !== ask.split(',')[1][1]);
+      loadBoard()
+      continue;
     }
+  }
+  /* Move Piece */
+  if (turn === 'white') {
     if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
       whiteCaptured.push('Pawn')
     } else if (board[`${ask.split(',')[1].trim()}`].includes('♜')) {
@@ -116,19 +134,24 @@ while (true) {
       whiteCaptured.push('How did you get here?')
     } else if (board[`${ask.split(',')[1].trim()}`].includes('♛')) {
       whiteCaptured.push('Queen')
-    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
-      //
-    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
-      //
-    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
-      //
-    } else if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {
-      //
-    } 
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♙')) {
+      blackCaptured.push('Pawn')
+    }
     board[`${ask.split(',')[1].trim()}`] =  `${board[`${ask.split(',')[0]}`]}`;
     board[`${ask.split(',')[0].trim()}`] = `_`;
     loadBoard()
   } else {
+    if (board[`${ask.split(',')[1].trim()}`].includes('♖')) {
+      blackCaptured.push('Rook')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♘')) {
+      blackCaptured.push('Knight')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♗')) {
+      blackCaptured.push('Bishop')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♔')) {
+      blackCaptured.push('King')
+    } else if (board[`${ask.split(',')[1].trim()}`].includes('♕')) {
+      blackCaptured.push(`Queen`)
+    }
     board[`${ask.split(',')[1].trim()}`] =  `${board[`${ask.split(',')[0]}`]}`;
     board[`${ask.split(',')[0].trim()}`] = `_`;
     loadBoard()
