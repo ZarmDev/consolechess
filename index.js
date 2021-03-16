@@ -112,14 +112,27 @@ while (true) {
 
 
 
-  
-  if (board[`${ask.split(',')[0].trim()}`].includes('♙')) {
-    if (ask.split(',')[1][2] > ask.split(',')[0][1] || board[ask.split(',')[1].trim()] !== '_' || ask.split(',')[0][0] !== ask.split(',')[1][1]) {
-      console.log('Pawn invalid, error report: ', ask.split(',')[1][2] > ask.split(',')[0][1], board[ask.split(',')[1].trim()] !== '_', board[`${ask.split(',')[1].trim()}`], ask.split(',')[0][0] !== ask.split(',')[1][1]);
-      loadBoard()
+  if (board[`${ask.split(',')[1].trim()}`] !== '♟️') {
+    if (board[`${ask.split(',')[0].trim()}`].includes('♙')) {
+      if (ask.split(',')[1][2] > ask.split(',')[0][1] || board[ask.split(',')[1].trim()] !== '_' || ask.split(',')[0][0] !== ask.split(',')[1][1]) {
+        console.log('Pawn invalid, error report: ', ask.split(',')[1][2] > ask.split(',')[0][1], board[ask.split(',')[1].trim()] !== '_', board[`${ask.split(',')[1].trim()}`], ask.split(',')[0][0] !== ask.split(',')[1][1]);
+        loadBoard()
+        continue;
+      }
+    }
+  }
+
+
+  // Commented because it causes errors
+  /*
+  if (board[`${ask.split(',')[1].trim()}`] === '♟️') {
+    if (ask.split(',')[1][2] > ask.split(',')[0][1] || ask.split(',')[1][2] < ask.split(',')[0][1] + 1) {
+      console.log('Pawn cannot take, error report: ', ask.split(',')[1][2] > ask.split(',')[0][1], ask.split(',')[1][2] < ask.split(',')[0][1] + 2);
       continue;
     }
   }
+  */
+
   /* Move Piece */
   if (turn === 'white') {
     if (board[`${ask.split(',')[1].trim()}`].includes('♟️')) {

@@ -13,9 +13,3 @@ Sorry, I didn't learn that yet.
 For educational purposes,
 
 and to practice.
-
-# Can I contribute?
-
-Sure!
-
-(But please contribute in JS and not typescript)
